@@ -1,0 +1,47 @@
+<div class="container" style="padding: 50px; padding-top: 15%; ">
+  <div style="text-align: center; color:azure;">
+    <h1>FORMULARIO PARA EL ENVIO DE DIPLOMA</h1>
+    <br>
+  </div>
+  <form [formGroup]="contacto">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+          <label for="inputName4">Nombre Completo</label>
+          <input formControlName="nombre" type="text" class="form-control" placeholder="Ingrese su nombre..." [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }">
+          <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+              <div *ngIf="f.nombre.errors.required">Por favor, ingresa tus Nombres y Apellidos</div>
+          </div>
+        </div>
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Correo</label>
+        <input formControlName="correo" type="email" class="form-control" placeholder="Ingrese su correo..." [ngClass]="{ 'is-invalid': submitted && f.correo.errors }">
+        <div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
+            <div *ngIf="f.correo.errors.required">El correo es obligatorio</div>
+            <div *ngIf="f.correo.errors.email">Por favor, ingresa tu correo</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputTaller">Taller tomado</label>
+        <select formControlName="taller" id="inputTaller" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.taller.errors }">
+          <option selected>Taller de PHP</option>
+          <option>Taller de GO</option>
+          <option>Taller de JAVA</option>
+          <option>Taller de C++</option>
+        </select>
+        <div *ngIf="submitted && f.taller.errors" class="invalid-feedback">
+            <div *ngIf="f.taller.errors.required">Por favor, eliga uno de los talleres</div>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputDate">Fecha</label>
+        <input formControlName="fecha" type="date" class="form-control" id="inputDate" [ngClass]="{ 'is-invalid': submitted && f.fecha.errors }">
+        <div *ngIf="submitted && f.fecha.errors" class="invalid-feedback">
+            <div *ngIf="f.fecha.errors.required">Por favor, eliga una fecha</div>
+        </div>
+      </div>
+    </div>
+    <button (click)="subir()" style="color:azure" type="submit" class="btn btn-warning">Enviar diploma</button>
+  </form>
+</div>

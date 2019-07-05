@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "diploma-1d705": {
+      "hosting": {
+        "face-frontend": [
+          "diploma-1d705"
+        ]
+      }
+    }
+  }
+}
